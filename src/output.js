@@ -7,20 +7,29 @@ const toText = function(v){
     return v.replace(/([A-Z])/g, ' $1').toLowerCase().trim();
 };
 
-const Output = function(code, subcode, msg){
+/**
+ * 抽象方法（包括native服务方法和Rest API）调用统一返回（输出）类型，
+ * 可以从其或展出标识不通语义的输出结果子类，但是内部结构不变
+ * @param {string} code - 输出结果标识码
+ * @param {string} subcode - 输出结果标识子码
+ * @param {string} msg - 输出结果提示消息
+ * @constructor
+ * @class
+ */
+function Output(code, subcode, msg){
     this.code = code;
     subcode && (this.subcode = subcode);
     msg && (this.msg = msg);
 
     Object.defineProperty(this, 'code', {value: code, writable: false});
-};
+}
 
 /**
  * Define a new Output class and return the initiated instance
  * @param name - the name of the new Output class
- * @param code - the code of the new Output class's instance
- * @param subcode - the subcode of the new Output class's instance
- * @param msg - the msg of the new Output class's instance
+ * @param {string} code - the code of the new Output class's instance
+ * @param {string} subcode - the subcode of the new Output class's instance
+ * @param {string} msg - the msg of the new Output class's instance
  * @returns {Output}
  */
 Output.define = function(name, subcode, msg){
@@ -76,14 +85,6 @@ Output.prototype.sub = function(subOutput){
     }
 
     return this;
-};
-
-/**
- * Wrap and return a static promise object returning Output object.
- * @returns {Promise.<Output>}
- */
-Output.prototype.resolve = function(){
-    return Promise.resolve(this.toObject());
 };
 
 module.exports = Output;

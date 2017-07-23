@@ -1,7 +1,7 @@
 {
   "name": "isocall",
   "version": "0.0.1",
-  "description": "A small framework & library which is designed to build method-invocation-like service and client   supporting many protocols and transports, such as native services, restful/http, websocket, and RPCs, especially in a **isomorphic** way.",
+  "description": "A small framework & library which is designed to build method-invocation-like service and client supporting many protocols and transports, such as native services, restful/http, websocket, and RPCs, especially in a **isomorphic** way.",
   "scripts": {},
   "dependencies": {},
   "devDependencies": {
