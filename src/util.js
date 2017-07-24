@@ -38,5 +38,6 @@ const clone = function(name) {
 
 module.exports = {
     isTel,
-    clone
+    clone,
+    assign: require('./object-assign')
 };

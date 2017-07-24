@@ -1,5 +1,4 @@
 const util = require('./util');
-const objectAssign = require('object-assign');
 
 const toText = function(v){
     return v.replace(/([A-Z])/g, ' $1').toLowerCase().trim();
@@ -44,7 +43,7 @@ Output.define = function(name, subcode, msg){
  * @returns {Output}
  */
 Output.prototype.attach = function(bizData){
-    return objectAssign(this, bizData);
+    return util.assign(this, bizData);
 };
 
 /**
@@ -53,7 +52,7 @@ Output.prototype.attach = function(bizData){
  * @returns {object} 纯JSON对象
  */
 Output.prototype.toObject = function(){
-    return objectAssign({}, this);
+    return util.assign({}, this);
 };
 
 /**
@@ -65,7 +64,7 @@ Output.prototype.toObject = function(){
  */
 Output.prototype.clone = function(v){
     const output = new this.constructor(this.code, this.subcode, this.msg);
-    return objectAssign(output, v);
+    return util.assign(output, v);
 };
 
 /**
