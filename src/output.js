@@ -1,6 +1,6 @@
 const util = require('./util');
 
-const toText = function(v){
+const toText = function (v) {
     return v.replace(/([A-Z])/g, ' $1').toLowerCase().trim();
 };
 
@@ -13,7 +13,7 @@ const toText = function(v){
  * @constructor
  * @class
  */
-function Output(code, subcode, msg){
+function Output (code, subcode, msg) {
     this.code = code;
     subcode && (this.subcode = subcode);
     msg && (this.msg = msg);
@@ -30,19 +30,18 @@ function Output(code, subcode, msg){
  * @param {string} msg - the msg of the new Output class's instance
  * @returns {Output}
  */
-Output.define = function(name, subcode, msg){
+Output.define = function (name, subcode, msg) {
     const NewOutput = util.clone.call(Output, name);
     const code = toText(name);
     return new NewOutput(code, subcode, msg);
 };
-
 
 /**
  * Attach more biz data for the output
  * 附加更多业务数据，并返回本对象
  * @returns {Output}
  */
-Output.prototype.attach = function(bizData){
+Output.prototype.attach = function (bizData) {
     return util.assign(this, bizData);
 };
 
@@ -51,7 +50,7 @@ Output.prototype.attach = function(bizData){
  * 转换并返回一个本实例对象的一个纯JSON对象，不带类型，用于调用方消费
  * @returns {object} 纯JSON对象
  */
-Output.prototype.toObject = function(){
+Output.prototype.toObject = function () {
     return util.assign({}, this);
 };
 
@@ -62,7 +61,7 @@ Output.prototype.toObject = function(){
  * @param {object} v - 克隆的同时，附加的业务数据对象
  * @returns {Output}
  */
-Output.prototype.clone = function(v){
+Output.prototype.clone = function (v) {
     const output = new this.constructor(this.code, this.subcode, this.msg);
     return util.assign(output, v);
 };
@@ -74,16 +73,14 @@ Output.prototype.clone = function(v){
  * @param subOutput 待附加的子类型对象
  * @returns {Output} 返回附加数据后的本对象
  */
-Output.prototype.sub = function(subOutput){
-    for(const p in subOutput){
-        if(subOutput.hasOwnProperty(p)){
-            if(p === 'code'){
+Output.prototype.sub = function (subOutput) {
+    for (const p in subOutput) {
+        if (subOutput.hasOwnProperty(p)) {
+            if (p === 'code') {
                 this.subcode = subOutput[p];
-            }
-            else if(p === 'msg'){
+            } else if (p === 'msg') {
                 this.msg = subOutput[p] || this.msg;
-            }
-            else{
+            } else {
                 this[p] = subOutput[p];
             }
         }

@@ -2,10 +2,23 @@
   "name": "isocall",
   "version": "0.0.4",
   "description": "A small framework & library which is designed to build method-invocation-like service and client supporting many protocols and transports, such as native services, restful/http, websocket, and RPCs, especially in a **isomorphic** way.",
+  "repository": "https://github.com/henryleu/isocall",
+  "license": "MIT",
+  "author": {
+    "name": "Henry Leu",
+    "email": "henryleu@126.com",
+    "url": "https://github.com/henryleu"
+  },
   "scripts": {},
   "dependencies": {},
   "devDependencies": {
-    "chai": "^4.0.2",
-    "mocha": "^3.4.2"
+    "chai": "^4.1.1",
+    "eslint": "^4.4.1",
+    "eslint-config-standard": "^10.2.1",
+    "eslint-plugin-import": "^2.7.0",
+    "eslint-plugin-node": "^5.1.1",
+    "eslint-plugin-promise": "^3.5.0",
+    "eslint-plugin-standard": "^3.0.1",
+    "mocha": "^3.5.0"
   }
 }

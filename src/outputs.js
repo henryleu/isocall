@@ -6,7 +6,7 @@ const Output = require('./output');
  * @augments Output
  * @see ServiceAvailability
  */
-const Ok = new Output(''); //空串来代表一切正常
+const Ok = new Output(''); // 空串来代表一切正常
 
 /**
  * 一种抽象类型，用于对输出结果的分类。此类型代表"网络基础设施错误"。
@@ -80,7 +80,7 @@ const InvalidClient = Output.define('InvalidClient', null, '无效客户端');
  * @see InvalidClient
  * @see ServiceAvailability
  */
-const InvalidSignature = Output.define('InvalidSignature', null, '无效签名'); //can be sub type
+const InvalidSignature = Output.define('InvalidSignature', null, '无效签名'); // can be sub type
 
 /**
  * 重播请求. 原因包括：签名算法错误，appSecret暴露了，或者是被恶意者重播了请求。直接联系sdk开发者。
@@ -89,7 +89,7 @@ const InvalidSignature = Output.define('InvalidSignature', null, '无效签名')
  * @see InvalidClient
  * @see ServiceAvailability
  */
-const ReplayedRequest = Output.define('ReplayedRequest', null, '重播请求'); //can be sub type
+const ReplayedRequest = Output.define('ReplayedRequest', null, '重播请求'); // can be sub type
 
 /**
  * 请求过期. 原因包括：客户端时间与服务器时间不一致，或者是被恶意者重播了请求。直接联系sdk开发者。
@@ -98,7 +98,7 @@ const ReplayedRequest = Output.define('ReplayedRequest', null, '重播请求'); 
  * @see InvalidClient
  * @see ServiceAvailability
  */
-const ExpiredRequest = Output.define('ExpiredRequest', null, '请求过期'); //can be sub type
+const ExpiredRequest = Output.define('ExpiredRequest', null, '请求过期'); // can be sub type
 
 /**
  * 一种抽象类型，用于对输出结果的分类。此类型代表"登录有效性"结果，返回此类型结果，
@@ -123,7 +123,7 @@ const InvalidLogin = Output.define('InvalidLogin', null, '无效登录');
  * @see InvalidLogin
  * @see AuthenticationValidity
  */
-const WithoutLoginToken = Output.define('WithoutLoginToken', null, '无登录令牌'); //can be sub type
+const WithoutLoginToken = Output.define('WithoutLoginToken', null, '无登录令牌'); // can be sub type
 
 /**
  * 无效登录令牌。原因包括：令牌格式错误，令牌无法解码，令牌版本无法识别等。
@@ -132,7 +132,7 @@ const WithoutLoginToken = Output.define('WithoutLoginToken', null, '无登录令
  * @see InvalidLogin
  * @see AuthenticationValidity
  */
-const WrongLoginToken = Output.define('WrongLoginToken', null, '无效登录令牌'); //can be sub type
+const WrongLoginToken = Output.define('WrongLoginToken', null, '无效登录令牌'); // can be sub type
 
 /**
  * 过期的登录令牌。原因包括：自上次登录六个月过去了，或者用户主动退出了应用。
@@ -141,8 +141,7 @@ const WrongLoginToken = Output.define('WrongLoginToken', null, '无效登录令�
  * @see InvalidLogin
  * @see AuthenticationValidity
  */
-const ExpiredLoginToken = Output.define('ExpiredLoginToken', null, '过期的登录令牌'); //can be sub type
-
+const ExpiredLoginToken = Output.define('ExpiredLoginToken', null, '过期的登录令牌'); // can be sub type
 
 /**
  * 一种抽象类型，用于对输出结果的分类。此类型代表"输入参数有效性"结果，返回此类型结果，
@@ -166,7 +165,7 @@ const InvalidInput = Output.define('InvalidInput', null, '输入错误');
  * @see InvalidInput
  * @see InputValidity
  */
-const InvalidInputFormat = Output.define('InvalidInputFormat', null, '输入格式错误'); //can be sub type
+const InvalidInputFormat = Output.define('InvalidInputFormat', null, '输入格式错误'); // can be sub type
 
 /**
  * 输入完整性错误。
@@ -175,7 +174,7 @@ const InvalidInputFormat = Output.define('InvalidInputFormat', null, '输入格�
  * @see InvalidInput
  * @see InputValidity
  */
-const InvalidInputIntegrity = Output.define('InvalidInputIntegrity', null, '输入完整性错误'); //can be sub type
+const InvalidInputIntegrity = Output.define('InvalidInputIntegrity', null, '输入完整性错误'); // can be sub type
 
 /**
  * 输入值域错误。
@@ -184,7 +183,7 @@ const InvalidInputIntegrity = Output.define('InvalidInputIntegrity', null, '输�
  * @see InvalidInput
  * @see InputValidity
  */
-const InvalidInputRange = Output.define('InvalidInputRange', null, '输入值域错误'); //can be sub type
+const InvalidInputRange = Output.define('InvalidInputRange', null, '输入值域错误'); // can be sub type
 
 /**
  * 输入逻辑逻辑。
@@ -193,7 +192,7 @@ const InvalidInputRange = Output.define('InvalidInputRange', null, '输入值域
  * @see InvalidInput
  * @see InputValidity
  */
-const InvalidInputLogic = Output.define('InvalidInputLogic', null, '输入逻辑逻辑'); //can be sub type
+const InvalidInputLogic = Output.define('InvalidInputLogic', null, '输入逻辑逻辑'); // can be sub type
 
 /**
  * 一种抽象类型，用于对输出结果的分类。此类型代表"HTTP服务错误"结果，返回此类型结果，
@@ -217,7 +216,6 @@ const WrongHttpRequest = Output.define('WrongHttpRequest', null, 'HTTP请求错�
  * @see WrongHttpAccess
  */
 const WrongHttpResponse = Output.define('WrongHttpResponse', null, 'HTTP响应错误');
-
 
 /**
  * 一种抽象类型，用于对输出结果的分类。此类型代表"内部服务有效性"结果，返回此类型结果，
@@ -269,7 +267,6 @@ const InternalServiceError = Output.define('InternalServiceError', null, '内部
  */
 const InternalDataError = Output.define('InternalDataError', null, '内部数据错误');
 
-
 module.exports = {
     Ok,
     UnknownNetworkError, NetworkRefused, RequestAborted,
@@ -277,6 +274,5 @@ module.exports = {
     InvalidLogin, WithoutLoginToken, WrongLoginToken, ExpiredLoginToken,
     InvalidInput, InvalidInputFormat, InvalidInputIntegrity, InvalidInputRange, InvalidInputLogic,
     WrongHttpRequest, WrongHttpResponse,
-    NotImplemented, ServiceUnavailable, ServiceMaintaining, InternalServiceError, InternalDataError,
+    NotImplemented, ServiceUnavailable, ServiceMaintaining, InternalServiceError, InternalDataError
 };
-
