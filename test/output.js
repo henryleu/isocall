@@ -1,12 +1,11 @@
 /**
  * Created by henryleu on 16/07/2017.
  */
-const Output = require('..').Output;
+const Output = require('../dist').Output;
 const assert = require('chai').assert;
 
-describe('Output#clone', function(){
-
-    it('clone', function(done){
+describe('Output#clone', function () {
+    it('clone', function (done) {
         const testCode = 'test 1';
         const testSubcode = 'subtest 1';
         const testMsg = 'test msg';
@@ -28,12 +27,10 @@ describe('Output#clone', function(){
 
         done();
     });
-
 });
 
-describe('Output#sub', function(){
-
-    it('sub', function(done){
+describe('Output#sub', function () {
+    it('sub', function (done) {
         const code1 = 'code 1';
         const subcode1 = 'subcode 1';
         const msg1 = 'msg 1';
@@ -54,7 +51,7 @@ describe('Output#sub', function(){
         done();
     });
 
-    it('sub without msg', function(done){
+    it('sub without msg', function (done) {
         const code1 = 'code 1';
         const subcode1 = 'subcode 1';
         const msg1 = 'msg 1';
@@ -75,9 +72,8 @@ describe('Output#sub', function(){
     });
 });
 
-describe('Output#toObject', function(){
-
-    it('toObject', function(done){
+describe('Output#toObject', function () {
+    it('toObject', function (done) {
         const testCode = 'test 1';
         const testSubcode = 'subtest 1';
         const testMsg = 'test msg';
@@ -89,12 +85,10 @@ describe('Output#toObject', function(){
 
         done();
     });
-
 });
 
-describe('Output#attach', function(){
-
-    it('attach', function(done){
+describe('Output#attach', function () {
+    it('attach', function (done) {
         const testCode = 'test 1';
         const testSubcode = 'subtest 1';
         const testMsg = 'test msg';
@@ -112,13 +106,10 @@ describe('Output#attach', function(){
 
         done();
     });
-
 });
 
-
-describe('Output.define', function(){
-
-    it('define a new type of Output and return its new instance', function(done){
+describe('Output.define', function () {
+    it('define a new type of Output and return its new instance', function (done) {
         const code = 'invalid parameters';
         const subcode = 'required';
         const msg = 'name is required';
@@ -130,5 +121,4 @@ describe('Output.define', function(){
 
         done();
     });
-
 });

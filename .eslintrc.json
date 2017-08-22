@@ -4,5 +4,10 @@
         "indent": ["error", 4],
         "semi": 0,
         "object-property-newline": 0
+    },
+    "env": {
+      "browser": true,
+      "node": true,
+      "mocha": true
     }
 }
